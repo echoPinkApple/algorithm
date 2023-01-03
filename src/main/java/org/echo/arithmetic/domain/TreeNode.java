@@ -12,6 +12,8 @@ package org.echo.arithmetic.domain;
 
 public class TreeNode {
     public Integer val;
+    //以当前节点为根节点的树的节点总数
+    public int size;
     public TreeNode left;
     public TreeNode right;
 
