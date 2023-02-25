@@ -1,6 +1,5 @@
 package org.echo.arithmetic.domain;
 
-import java.util.List;
 
 /**
  * @projectName: arithmetic
