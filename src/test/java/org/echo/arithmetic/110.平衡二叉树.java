@@ -1,3 +1,5 @@
+import static org.mockito.ArgumentMatchers.refEq;
+
 /*
  * @lc app=leetcode.cn id=110 lang=java
  *
@@ -22,15 +24,7 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if(root==null){
-            return true;
-        }
-        int leftDepth=depth(root.left);
-        int rightDepth=depth(root.right);
-        if(Math.abs((leftDepth-rightDepth))>1){
-            return false;
-        }
-        return isBalanced(root.left)&& isBalanced(root.right);
+        return depth(root) >= 0;
     }
 
     public int depth(TreeNode root) {
@@ -38,8 +32,13 @@ class Solution {
             return 0;
         }
         int leftDepth = depth(root.left);
-        int rightDepth=depth(root.right);
-        return 1+Math.max(leftDepth, rightDepth);
+        int rightDepth = depth(root.right);
+        // 在二叉树后续位置直接判断是否为平衡二叉树，用-1表示不平衡
+        if (leftDepth == -1 || rightDepth == -1 || Math.abs(leftDepth - rightDepth) > 1) {
+            return -1;
+        }
+        //平衡二叉树则返回其高度
+        return 1 + Math.max(leftDepth, rightDepth);
     }
 }
 // @lc code=end
