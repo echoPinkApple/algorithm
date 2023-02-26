@@ -4,12 +4,36 @@ import java.util.Arrays;
 
 public class AddOneTest {
     public static void main(String[] args) {
-        int[] arr=new int[]{9,9,9};
-        int[] plusOne = plusOne(arr);
-        System.out.println(plusOne);
-        Arrays.stream(plusOne).forEach(System.out::println);
+        // int[] arr=new int[]{9,9,9};
+        // int[] plusOne = plusOne(arr);
+        // System.out.println(plusOne);
+        // Arrays.stream(plusOne).forEach(System.out::println);
         // Stream.of(plusOne).forEach(System.out::println);
+        String s="A man, a plan, a canal: Panama";
+        test(s);
     }
+
+    public static boolean test(String s){
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            while (s.charAt(left) < 'A' || s.charAt(left) > 'x' || (s.charAt(left) > 'X' && s.charAt(left) < 'a')) {
+                left++;
+            }
+            while (s.charAt(right) < 'A' || s.charAt(right) > 'x' || (s.charAt(right) > 'X' && s.charAt(right) < 'a')) {
+                right--;
+            }
+            System.out.println("left="+s.charAt(left)+"   right="+s.charAt(right));
+            System.out.println(Math.abs(s.charAt(left)-s.charAt(right)));
+            if (s.charAt(left) != s.charAt(right) || Math.abs(s.charAt(left) - s.charAt(right)) != 32) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
     public  static int[] plusOne(int[] digits) {
         int index=digits.length-1;
         if(digits[index]!=9){
