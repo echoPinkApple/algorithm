@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         int sum= Arrays.stream(nums).distinct().reduce(0, (a,b)->{return a+1;});
-        return sum==nums.length;
+        return sum!=nums.length;
     }
 }
 // @lc code=end
