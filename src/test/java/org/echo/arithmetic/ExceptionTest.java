@@ -13,7 +13,9 @@ public class ExceptionTest {
 //        int i1 = unsafe.pageSize();
 //        System.out.println(i);
 //        System.out.println(i1);
+        System.out.println(2^2);
+        System.out.println(2*2);
     }
-    ThreadPoolExecutor executor=new ThreadPoolExecutor(1,2,5, TimeUnit.MINUTES,new ArrayBlockingQueue<>(100));
+    // ThreadPoolExecutor executor=new ThreadPoolExecutor(1,2,5, TimeUnit.MINUTES,new ArrayBlockingQueue<>(100));
 
 }
