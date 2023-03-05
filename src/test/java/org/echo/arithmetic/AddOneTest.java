@@ -1,6 +1,9 @@
 package org.echo.arithmetic;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class AddOneTest {
     public static void main(String[] args) {
@@ -9,8 +12,13 @@ public class AddOneTest {
         // System.out.println(plusOne);
         // Arrays.stream(plusOne).forEach(System.out::println);
         // Stream.of(plusOne).forEach(System.out::println);
-        String s="A man, a plan, a canal: Panama";
-        test(s);
+        // String s="A man, a plan, a canal: Panama";
+        // test(s);
+        List<Integer> list=new ArrayList<>();
+        
+        list.add(1);
+        list.add(2);
+        list.add(3);
     }
 
     public static boolean test(String s){
