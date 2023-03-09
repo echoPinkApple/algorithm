@@ -14,11 +14,33 @@ public class AddOneTest {
         // Stream.of(plusOne).forEach(System.out::println);
         // String s="A man, a plan, a canal: Panama";
         // test(s);
-        List<Integer> list=new ArrayList<>();
-        
-        list.add(1);
-        list.add(2);
-        list.add(3);
+        String s1="123467890";
+        String s2="345";
+        String addStrings = addStrings(s1, s2);
+        System.out.println(addStrings);
+    }
+
+    public static String addStrings(String num1, String num2) {
+        int size1=num1.length()-1;
+        int size2=num2.length()-1;
+        StringBuilder builder=new StringBuilder();
+        int carry=0;
+        while(size1>=0 || size2>=0){
+            char ch1='0';
+            char ch2='0';
+            if(size1>=0){
+                ch1=num1.charAt(size1);
+            }
+            if(size2>=0){
+                ch2=num2.charAt(size2);
+            }
+            int sum=ch1+ch2+carry-2*48;
+            carry=sum/10;
+            builder.append(sum%10);
+            size1--;
+            size2--;
+        }
+        return builder.reverse().toString();
     }
 
     public static boolean test(String s){
