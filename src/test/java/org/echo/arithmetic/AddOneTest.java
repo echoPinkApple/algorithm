@@ -14,10 +14,33 @@ public class AddOneTest {
         // Stream.of(plusOne).forEach(System.out::println);
         // String s="A man, a plan, a canal: Panama";
         // test(s);
-        String s1="123467890";
-        String s2="345";
-        String addStrings = addStrings(s1, s2);
-        System.out.println(addStrings);
+        // String s1="123467890";
+        // String s2="345";
+        // String addStrings = addStrings(s1, s2);
+        // System.out.println(addStrings);
+        int arrangeCoins = arrangeCoins(1804289383);
+        System.out.println(arrangeCoins);
+    }
+
+
+    public static int arrangeCoins(int n) {
+        int left=1;
+        int right=n;
+        while(left<=right){
+            int mid=(left+right)>>>1;
+            long sum =(1L+mid)*mid/2;
+            if(sum==n){
+                return mid;
+            }
+            else if(sum<n){
+                left=mid+1;
+            }
+            else if(sum>n){
+                right=mid-1;
+            }
+        }
+        return left-1;
+
     }
 
     public static String addStrings(String num1, String num2) {
