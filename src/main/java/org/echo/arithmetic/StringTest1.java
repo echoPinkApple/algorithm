@@ -2,10 +2,12 @@ package org.echo.arithmetic;
 
 public class StringTest1 {
     public static void main(String[] args) {
-        String s="abcdef";
-        String reverseStr = reverseStr(s, 2);
-        System.out.println("hello");
-        System.out.println(reverseStr);
+        // String s="abcdef";
+        // String reverseStr = reverseStr(s, 2);
+        // System.out.println("hello");
+        // System.out.println(reverseStr);
+        boolean checkRecord = checkRecord("ALLAPPL");
+        System.out.println(checkRecord);
     }
     public static String reverseStr(String s, int k) {
         char[] res=new char[s.length()];
@@ -35,5 +37,34 @@ public class StringTest1 {
             start++;
             end--;
         }
+    }
+
+    public static boolean checkRecord(String s) {
+        int absent=0;
+        int late=0;
+        for (int i = 0; i < s.length(); i++) {
+            char temp=s.charAt(i);
+            if(temp=='A'){
+                absent++;
+                if(absent>=2){
+                    return false;
+                }
+            }
+            else if(temp=='L'){
+                late++;
+                i++;
+                while(i<s.length() && s.charAt(i)=='L'){
+                    late++;
+                    i++;
+                }
+                if(late>=3){
+                    return false;
+                }
+                else{
+                    late=0;
+                }
+            }
+        }
+        return true;
     }
 }
