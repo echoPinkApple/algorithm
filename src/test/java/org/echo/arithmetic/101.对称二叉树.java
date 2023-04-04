@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
  * @lc app=leetcode.cn id=101 lang=java
  *
@@ -26,13 +29,34 @@ class Solution {
     }
 
     private boolean check(TreeNode p, TreeNode q) {
-        if(p==null && q==null){
-            return true;
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(p);
+        queue.offer(q);
+        while(!queue.isEmpty()){
+            TreeNode left=queue.poll();
+            TreeNode right=queue.poll();
+            if(left==null && right==null){
+                continue;
+            }
+            if(left==null || right==null){
+                return false;
+            }
+            if(left.val!=right.val){
+                return false;
+            }
+            queue.offer(left.left);
+            queue.offer(right.right);
+            queue.offer(left.right);
+            queue.offer(right.left);
         }
-        if(p==null || q==null){
-            return false;
-        }
-        return p.val==q.val && check(p.left, q.right) && check(p.right, q.left);
+        return true;
+        // if(p==null && q==null){
+        //     return true;
+        // }
+        // if(p==null || q==null){
+        //     return false;
+        // }
+        // return p.val==q.val && check(p.left, q.right) && check(p.right, q.left);
     }
 }
 // @lc code=end
