@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @package: org.echo.arithmetic
  * @className: BeanTest
  * @author: xin
- * @description: TODO
+ * @description: bean
  * @date: 2023/3/8 11:00
  * @version: 1.0
  */
